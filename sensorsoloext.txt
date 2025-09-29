@@ -19,7 +19,7 @@ void loop()
   digitalWrite(6, LOW);
   digitalWrite(7, LOW);
   
-   if (umisolo < 204) {             //ALUNOS: 341 a 682   
+   if (umisolo < 204) {             
     digitalWrite(7, HIGH);
     digitalWrite(buzzer, HIGH);
   } 
@@ -41,4 +41,5 @@ void loop()
   }
   
   delay(100);
+
 }
