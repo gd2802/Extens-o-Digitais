@@ -1,0 +1,44 @@
+int umisolo = 0;
+int buzzer = 11;
+
+void setup()
+{
+  pinMode(A1, INPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(11, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  umisolo = analogRead(A1);
+  Serial.println(umisolo);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+  
+   if (umisolo < 204) {             //ALUNOS: 341 a 682   
+    digitalWrite(7, HIGH);
+    digitalWrite(buzzer, HIGH);
+  } 
+  else if (umisolo < 409) {           
+    digitalWrite(7, HIGH);
+    digitalWrite(buzzer, LOW);
+  } 
+  else if (umisolo < 613) {           
+    digitalWrite(6, HIGH);
+    digitalWrite(buzzer, LOW);
+  } 
+  else if (umisolo < 818) {           
+    digitalWrite(5, HIGH);
+    digitalWrite(buzzer, LOW);
+  } 
+  else {                              
+    digitalWrite(5, HIGH);
+  	digitalWrite(buzzer, HIGH);
+  }
+  
+  delay(100);
+}
